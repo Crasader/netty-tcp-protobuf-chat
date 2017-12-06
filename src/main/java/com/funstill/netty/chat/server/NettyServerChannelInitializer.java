@@ -1,5 +1,6 @@
 package com.funstill.netty.chat.server;
 
+import com.funstill.netty.chat.handler.NettyServerHandler;
 import com.funstill.netty.chat.protobuf.ProtoMsg;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;

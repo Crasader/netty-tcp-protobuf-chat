@@ -1,19 +1,22 @@
-package com.funstill.netty.chat.server;
+package com.funstill.netty.chat.handler;
 
 
+import com.funstill.netty.chat.model.ProtoTypeEnum;
+import com.funstill.netty.chat.protobuf.CommonMsg;
 import com.funstill.netty.chat.protobuf.ProtoMsg;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.channel.group.ChannelGroup;
 
 public class NettyServerHandler extends SimpleChannelInboundHandler<ProtoMsg.Message> {
 
-	ChannelGroup c;
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, ProtoMsg.Message msg) throws Exception {
 //		Channel ch=ctx.channel();
-		System.out.println("server收到消息:" + msg.toString());
-		// 回复一条信息给客户端
+		if(msg.getHeader().getProtoType()== ProtoTypeEnum.COMMON_MSG.getIndex()){
+			CommonMsg.Body commonMsg=CommonMsg.Body.parseFrom(msg.getBody());
+			System.out.println("server收到消息:" + commonMsg.toString());
+		}
+		// 回复一条信息给客户端(response)
 //		ctx.writeAndFlush(reply);
 
 	}

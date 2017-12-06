@@ -1,31 +1,18 @@
 syntax = "proto3";
 //package com.funstill.netty.chat.protobuf.model;
-//import "MsgHeader.proto";
-//import "MsgBody.proto";
+//import "Header.proto";
 option java_package = "com.funstill.netty.chat.protobuf";
 
-message MsgHeader {
-    string uid = 1;
+message Header {
+    string uuid = 1;
     uint32 length = 2;
     /**
      *消息协议类型(心跳包,登录,消息等)
      */
     uint32 protoType = 3;
 }
-message MsgBody {
-    /**
-     *消息类型(1文字,2图片,3音频,4视频,5
-     */
-    uint32 msgType = 1;
-    uint32 sender = 2;
-    uint32 receiver = 3;
-    /**
-     *消息内容
-     */
-    string content = 4;
-}
 
 message Message {
-    MsgHeader header = 1;
-    MsgBody body = 2;
+    Header header = 1;
+    bytes body = 2;
 }

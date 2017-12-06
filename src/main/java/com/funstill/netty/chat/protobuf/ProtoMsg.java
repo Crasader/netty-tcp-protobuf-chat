@@ -14,19 +14,19 @@ public final class ProtoMsg {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface MsgHeaderOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:MsgHeader)
+  public interface HeaderOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Header)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string uid = 1;</code>
+     * <code>string uuid = 1;</code>
      */
-    java.lang.String getUid();
+    java.lang.String getUuid();
     /**
-     * <code>string uid = 1;</code>
+     * <code>string uuid = 1;</code>
      */
     com.google.protobuf.ByteString
-        getUidBytes();
+        getUuidBytes();
 
     /**
      * <code>uint32 length = 2;</code>
@@ -44,19 +44,19 @@ public final class ProtoMsg {
     int getProtoType();
   }
   /**
-   * Protobuf type {@code MsgHeader}
+   * Protobuf type {@code Header}
    */
-  public  static final class MsgHeader extends
+  public  static final class Header extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:MsgHeader)
-      MsgHeaderOrBuilder {
+      // @@protoc_insertion_point(message_implements:Header)
+      HeaderOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use MsgHeader.newBuilder() to construct.
-    private MsgHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Header.newBuilder() to construct.
+    private Header(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private MsgHeader() {
-      uid_ = "";
+    private Header() {
+      uuid_ = "";
       length_ = 0;
       protoType_ = 0;
     }
@@ -66,7 +66,7 @@ public final class ProtoMsg {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MsgHeader(
+    private Header(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -95,7 +95,7 @@ public final class ProtoMsg {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              uid_ = s;
+              uuid_ = s;
               break;
             }
             case 16: {
@@ -122,44 +122,44 @@ public final class ProtoMsg {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgHeader_descriptor;
+      return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_Header_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgHeader_fieldAccessorTable
+      return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_Header_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.class, com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.Builder.class);
+              com.funstill.netty.chat.protobuf.ProtoMsg.Header.class, com.funstill.netty.chat.protobuf.ProtoMsg.Header.Builder.class);
     }
 
-    public static final int UID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object uid_;
+    public static final int UUID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uuid_;
     /**
-     * <code>string uid = 1;</code>
+     * <code>string uuid = 1;</code>
      */
-    public java.lang.String getUid() {
-      java.lang.Object ref = uid_;
+    public java.lang.String getUuid() {
+      java.lang.Object ref = uuid_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        uid_ = s;
+        uuid_ = s;
         return s;
       }
     }
     /**
-     * <code>string uid = 1;</code>
+     * <code>string uuid = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getUidBytes() {
-      java.lang.Object ref = uid_;
+        getUuidBytes() {
+      java.lang.Object ref = uuid_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        uid_ = b;
+        uuid_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -201,8 +201,8 @@ public final class ProtoMsg {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getUidBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
+      if (!getUuidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
       }
       if (length_ != 0) {
         output.writeUInt32(2, length_);
@@ -218,8 +218,8 @@ public final class ProtoMsg {
       if (size != -1) return size;
 
       size = 0;
-      if (!getUidBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
+      if (!getUuidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
       }
       if (length_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -239,14 +239,14 @@ public final class ProtoMsg {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader)) {
+      if (!(obj instanceof com.funstill.netty.chat.protobuf.ProtoMsg.Header)) {
         return super.equals(obj);
       }
-      com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader other = (com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader) obj;
+      com.funstill.netty.chat.protobuf.ProtoMsg.Header other = (com.funstill.netty.chat.protobuf.ProtoMsg.Header) obj;
 
       boolean result = true;
-      result = result && getUid()
-          .equals(other.getUid());
+      result = result && getUuid()
+          .equals(other.getUuid());
       result = result && (getLength()
           == other.getLength());
       result = result && (getProtoType()
@@ -262,8 +262,8 @@ public final class ProtoMsg {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + UID_FIELD_NUMBER;
-      hash = (53 * hash) + getUid().hashCode();
+      hash = (37 * hash) + UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getUuid().hashCode();
       hash = (37 * hash) + LENGTH_FIELD_NUMBER;
       hash = (53 * hash) + getLength();
       hash = (37 * hash) + PROTOTYPE_FIELD_NUMBER;
@@ -273,69 +273,69 @@ public final class ProtoMsg {
       return hash;
     }
 
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(byte[] data)
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(java.io.InputStream input)
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseDelimitedFrom(java.io.InputStream input)
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseDelimitedFrom(
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parseFrom(
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -347,7 +347,7 @@ public final class ProtoMsg {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader prototype) {
+    public static Builder newBuilder(com.funstill.netty.chat.protobuf.ProtoMsg.Header prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -362,25 +362,25 @@ public final class ProtoMsg {
       return builder;
     }
     /**
-     * Protobuf type {@code MsgHeader}
+     * Protobuf type {@code Header}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:MsgHeader)
-        com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeaderOrBuilder {
+        // @@protoc_insertion_point(builder_implements:Header)
+        com.funstill.netty.chat.protobuf.ProtoMsg.HeaderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgHeader_descriptor;
+        return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_Header_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgHeader_fieldAccessorTable
+        return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_Header_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.class, com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.Builder.class);
+                com.funstill.netty.chat.protobuf.ProtoMsg.Header.class, com.funstill.netty.chat.protobuf.ProtoMsg.Header.Builder.class);
       }
 
-      // Construct using com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.newBuilder()
+      // Construct using com.funstill.netty.chat.protobuf.ProtoMsg.Header.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -397,7 +397,7 @@ public final class ProtoMsg {
       }
       public Builder clear() {
         super.clear();
-        uid_ = "";
+        uuid_ = "";
 
         length_ = 0;
 
@@ -408,24 +408,24 @@ public final class ProtoMsg {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgHeader_descriptor;
+        return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_Header_descriptor;
       }
 
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader getDefaultInstanceForType() {
-        return com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.getDefaultInstance();
+      public com.funstill.netty.chat.protobuf.ProtoMsg.Header getDefaultInstanceForType() {
+        return com.funstill.netty.chat.protobuf.ProtoMsg.Header.getDefaultInstance();
       }
 
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader build() {
-        com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader result = buildPartial();
+      public com.funstill.netty.chat.protobuf.ProtoMsg.Header build() {
+        com.funstill.netty.chat.protobuf.ProtoMsg.Header result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader buildPartial() {
-        com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader result = new com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader(this);
-        result.uid_ = uid_;
+      public com.funstill.netty.chat.protobuf.ProtoMsg.Header buildPartial() {
+        com.funstill.netty.chat.protobuf.ProtoMsg.Header result = new com.funstill.netty.chat.protobuf.ProtoMsg.Header(this);
+        result.uuid_ = uuid_;
         result.length_ = length_;
         result.protoType_ = protoType_;
         onBuilt();
@@ -459,18 +459,18 @@ public final class ProtoMsg {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader) {
-          return mergeFrom((com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader)other);
+        if (other instanceof com.funstill.netty.chat.protobuf.ProtoMsg.Header) {
+          return mergeFrom((com.funstill.netty.chat.protobuf.ProtoMsg.Header)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader other) {
-        if (other == com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.getDefaultInstance()) return this;
-        if (!other.getUid().isEmpty()) {
-          uid_ = other.uid_;
+      public Builder mergeFrom(com.funstill.netty.chat.protobuf.ProtoMsg.Header other) {
+        if (other == com.funstill.netty.chat.protobuf.ProtoMsg.Header.getDefaultInstance()) return this;
+        if (!other.getUuid().isEmpty()) {
+          uuid_ = other.uuid_;
           onChanged();
         }
         if (other.getLength() != 0) {
@@ -492,11 +492,11 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader parsedMessage = null;
+        com.funstill.netty.chat.protobuf.ProtoMsg.Header parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader) e.getUnfinishedMessage();
+          parsedMessage = (com.funstill.netty.chat.protobuf.ProtoMsg.Header) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -506,71 +506,71 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object uid_ = "";
+      private java.lang.Object uuid_ = "";
       /**
-       * <code>string uid = 1;</code>
+       * <code>string uuid = 1;</code>
        */
-      public java.lang.String getUid() {
-        java.lang.Object ref = uid_;
+      public java.lang.String getUuid() {
+        java.lang.Object ref = uuid_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          uid_ = s;
+          uuid_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string uid = 1;</code>
+       * <code>string uuid = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getUidBytes() {
-        java.lang.Object ref = uid_;
+          getUuidBytes() {
+        java.lang.Object ref = uuid_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          uid_ = b;
+          uuid_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string uid = 1;</code>
+       * <code>string uuid = 1;</code>
        */
-      public Builder setUid(
+      public Builder setUuid(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        uid_ = value;
+        uuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string uid = 1;</code>
+       * <code>string uuid = 1;</code>
        */
-      public Builder clearUid() {
+      public Builder clearUuid() {
         
-        uid_ = getDefaultInstance().getUid();
+        uuid_ = getDefaultInstance().getUuid();
         onChanged();
         return this;
       }
       /**
-       * <code>string uid = 1;</code>
+       * <code>string uuid = 1;</code>
        */
-      public Builder setUidBytes(
+      public Builder setUuidBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        uid_ = value;
+        uuid_ = value;
         onChanged();
         return this;
       }
@@ -652,823 +652,39 @@ public final class ProtoMsg {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:MsgHeader)
+      // @@protoc_insertion_point(builder_scope:Header)
     }
 
-    // @@protoc_insertion_point(class_scope:MsgHeader)
-    private static final com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:Header)
+    private static final com.funstill.netty.chat.protobuf.ProtoMsg.Header DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader();
+      DEFAULT_INSTANCE = new com.funstill.netty.chat.protobuf.ProtoMsg.Header();
     }
 
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader getDefaultInstance() {
+    public static com.funstill.netty.chat.protobuf.ProtoMsg.Header getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<MsgHeader>
-        PARSER = new com.google.protobuf.AbstractParser<MsgHeader>() {
-      public MsgHeader parsePartialFrom(
+    private static final com.google.protobuf.Parser<Header>
+        PARSER = new com.google.protobuf.AbstractParser<Header>() {
+      public Header parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MsgHeader(input, extensionRegistry);
+        return new Header(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<MsgHeader> parser() {
+    public static com.google.protobuf.Parser<Header> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<MsgHeader> getParserForType() {
+    public com.google.protobuf.Parser<Header> getParserForType() {
       return PARSER;
     }
 
-    public com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface MsgBodyOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:MsgBody)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     **
-     *消息类型(1文字,2图片,3音频,4视频,5
-     * </pre>
-     *
-     * <code>uint32 msgType = 1;</code>
-     */
-    int getMsgType();
-
-    /**
-     * <code>uint32 sender = 2;</code>
-     */
-    int getSender();
-
-    /**
-     * <code>uint32 receiver = 3;</code>
-     */
-    int getReceiver();
-
-    /**
-     * <pre>
-     **
-     *消息内容
-     * </pre>
-     *
-     * <code>string content = 4;</code>
-     */
-    java.lang.String getContent();
-    /**
-     * <pre>
-     **
-     *消息内容
-     * </pre>
-     *
-     * <code>string content = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getContentBytes();
-  }
-  /**
-   * Protobuf type {@code MsgBody}
-   */
-  public  static final class MsgBody extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:MsgBody)
-      MsgBodyOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use MsgBody.newBuilder() to construct.
-    private MsgBody(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private MsgBody() {
-      msgType_ = 0;
-      sender_ = 0;
-      receiver_ = 0;
-      content_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private MsgBody(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-
-              msgType_ = input.readUInt32();
-              break;
-            }
-            case 16: {
-
-              sender_ = input.readUInt32();
-              break;
-            }
-            case 24: {
-
-              receiver_ = input.readUInt32();
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              content_ = s;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgBody_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgBody_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.class, com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.Builder.class);
-    }
-
-    public static final int MSGTYPE_FIELD_NUMBER = 1;
-    private int msgType_;
-    /**
-     * <pre>
-     **
-     *消息类型(1文字,2图片,3音频,4视频,5
-     * </pre>
-     *
-     * <code>uint32 msgType = 1;</code>
-     */
-    public int getMsgType() {
-      return msgType_;
-    }
-
-    public static final int SENDER_FIELD_NUMBER = 2;
-    private int sender_;
-    /**
-     * <code>uint32 sender = 2;</code>
-     */
-    public int getSender() {
-      return sender_;
-    }
-
-    public static final int RECEIVER_FIELD_NUMBER = 3;
-    private int receiver_;
-    /**
-     * <code>uint32 receiver = 3;</code>
-     */
-    public int getReceiver() {
-      return receiver_;
-    }
-
-    public static final int CONTENT_FIELD_NUMBER = 4;
-    private volatile java.lang.Object content_;
-    /**
-     * <pre>
-     **
-     *消息内容
-     * </pre>
-     *
-     * <code>string content = 4;</code>
-     */
-    public java.lang.String getContent() {
-      java.lang.Object ref = content_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        content_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     **
-     *消息内容
-     * </pre>
-     *
-     * <code>string content = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getContentBytes() {
-      java.lang.Object ref = content_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        content_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (msgType_ != 0) {
-        output.writeUInt32(1, msgType_);
-      }
-      if (sender_ != 0) {
-        output.writeUInt32(2, sender_);
-      }
-      if (receiver_ != 0) {
-        output.writeUInt32(3, receiver_);
-      }
-      if (!getContentBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, content_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (msgType_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, msgType_);
-      }
-      if (sender_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, sender_);
-      }
-      if (receiver_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, receiver_);
-      }
-      if (!getContentBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, content_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody)) {
-        return super.equals(obj);
-      }
-      com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody other = (com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody) obj;
-
-      boolean result = true;
-      result = result && (getMsgType()
-          == other.getMsgType());
-      result = result && (getSender()
-          == other.getSender());
-      result = result && (getReceiver()
-          == other.getReceiver());
-      result = result && getContent()
-          .equals(other.getContent());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + MSGTYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getMsgType();
-      hash = (37 * hash) + SENDER_FIELD_NUMBER;
-      hash = (53 * hash) + getSender();
-      hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
-      hash = (53 * hash) + getReceiver();
-      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
-      hash = (53 * hash) + getContent().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code MsgBody}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:MsgBody)
-        com.funstill.netty.chat.protobuf.ProtoMsg.MsgBodyOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgBody_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgBody_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.class, com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.Builder.class);
-      }
-
-      // Construct using com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        msgType_ = 0;
-
-        sender_ = 0;
-
-        receiver_ = 0;
-
-        content_ = "";
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.funstill.netty.chat.protobuf.ProtoMsg.internal_static_MsgBody_descriptor;
-      }
-
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody getDefaultInstanceForType() {
-        return com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.getDefaultInstance();
-      }
-
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody build() {
-        com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody buildPartial() {
-        com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody result = new com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody(this);
-        result.msgType_ = msgType_;
-        result.sender_ = sender_;
-        result.receiver_ = receiver_;
-        result.content_ = content_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody) {
-          return mergeFrom((com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody other) {
-        if (other == com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.getDefaultInstance()) return this;
-        if (other.getMsgType() != 0) {
-          setMsgType(other.getMsgType());
-        }
-        if (other.getSender() != 0) {
-          setSender(other.getSender());
-        }
-        if (other.getReceiver() != 0) {
-          setReceiver(other.getReceiver());
-        }
-        if (!other.getContent().isEmpty()) {
-          content_ = other.content_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int msgType_ ;
-      /**
-       * <pre>
-       **
-       *消息类型(1文字,2图片,3音频,4视频,5
-       * </pre>
-       *
-       * <code>uint32 msgType = 1;</code>
-       */
-      public int getMsgType() {
-        return msgType_;
-      }
-      /**
-       * <pre>
-       **
-       *消息类型(1文字,2图片,3音频,4视频,5
-       * </pre>
-       *
-       * <code>uint32 msgType = 1;</code>
-       */
-      public Builder setMsgType(int value) {
-        
-        msgType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       **
-       *消息类型(1文字,2图片,3音频,4视频,5
-       * </pre>
-       *
-       * <code>uint32 msgType = 1;</code>
-       */
-      public Builder clearMsgType() {
-        
-        msgType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int sender_ ;
-      /**
-       * <code>uint32 sender = 2;</code>
-       */
-      public int getSender() {
-        return sender_;
-      }
-      /**
-       * <code>uint32 sender = 2;</code>
-       */
-      public Builder setSender(int value) {
-        
-        sender_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 sender = 2;</code>
-       */
-      public Builder clearSender() {
-        
-        sender_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int receiver_ ;
-      /**
-       * <code>uint32 receiver = 3;</code>
-       */
-      public int getReceiver() {
-        return receiver_;
-      }
-      /**
-       * <code>uint32 receiver = 3;</code>
-       */
-      public Builder setReceiver(int value) {
-        
-        receiver_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 receiver = 3;</code>
-       */
-      public Builder clearReceiver() {
-        
-        receiver_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object content_ = "";
-      /**
-       * <pre>
-       **
-       *消息内容
-       * </pre>
-       *
-       * <code>string content = 4;</code>
-       */
-      public java.lang.String getContent() {
-        java.lang.Object ref = content_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          content_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       **
-       *消息内容
-       * </pre>
-       *
-       * <code>string content = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getContentBytes() {
-        java.lang.Object ref = content_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          content_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       **
-       *消息内容
-       * </pre>
-       *
-       * <code>string content = 4;</code>
-       */
-      public Builder setContent(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        content_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       **
-       *消息内容
-       * </pre>
-       *
-       * <code>string content = 4;</code>
-       */
-      public Builder clearContent() {
-        
-        content_ = getDefaultInstance().getContent();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       **
-       *消息内容
-       * </pre>
-       *
-       * <code>string content = 4;</code>
-       */
-      public Builder setContentBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        content_ = value;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:MsgBody)
-    }
-
-    // @@protoc_insertion_point(class_scope:MsgBody)
-    private static final com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody();
-    }
-
-    public static com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<MsgBody>
-        PARSER = new com.google.protobuf.AbstractParser<MsgBody>() {
-      public MsgBody parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MsgBody(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<MsgBody> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MsgBody> getParserForType() {
-      return PARSER;
-    }
-
-    public com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody getDefaultInstanceForType() {
+    public com.funstill.netty.chat.protobuf.ProtoMsg.Header getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1479,30 +695,22 @@ public final class ProtoMsg {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.MsgHeader header = 1;</code>
+     * <code>.Header header = 1;</code>
      */
     boolean hasHeader();
     /**
-     * <code>.MsgHeader header = 1;</code>
+     * <code>.Header header = 1;</code>
      */
-    com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader getHeader();
+    com.funstill.netty.chat.protobuf.ProtoMsg.Header getHeader();
     /**
-     * <code>.MsgHeader header = 1;</code>
+     * <code>.Header header = 1;</code>
      */
-    com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeaderOrBuilder getHeaderOrBuilder();
+    com.funstill.netty.chat.protobuf.ProtoMsg.HeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <code>.MsgBody body = 2;</code>
+     * <code>bytes body = 2;</code>
      */
-    boolean hasBody();
-    /**
-     * <code>.MsgBody body = 2;</code>
-     */
-    com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody getBody();
-    /**
-     * <code>.MsgBody body = 2;</code>
-     */
-    com.funstill.netty.chat.protobuf.ProtoMsg.MsgBodyOrBuilder getBodyOrBuilder();
+    com.google.protobuf.ByteString getBody();
   }
   /**
    * Protobuf type {@code Message}
@@ -1517,6 +725,7 @@ public final class ProtoMsg {
       super(builder);
     }
     private Message() {
+      body_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -1551,11 +760,11 @@ public final class ProtoMsg {
               break;
             }
             case 10: {
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.Builder subBuilder = null;
+              com.funstill.netty.chat.protobuf.ProtoMsg.Header.Builder subBuilder = null;
               if (header_ != null) {
                 subBuilder = header_.toBuilder();
               }
-              header_ = input.readMessage(com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.parser(), extensionRegistry);
+              header_ = input.readMessage(com.funstill.netty.chat.protobuf.ProtoMsg.Header.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(header_);
                 header_ = subBuilder.buildPartial();
@@ -1564,16 +773,8 @@ public final class ProtoMsg {
               break;
             }
             case 18: {
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.Builder subBuilder = null;
-              if (body_ != null) {
-                subBuilder = body_.toBuilder();
-              }
-              body_ = input.readMessage(com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(body_);
-                body_ = subBuilder.buildPartial();
-              }
 
+              body_ = input.readBytes();
               break;
             }
           }
@@ -1601,45 +802,33 @@ public final class ProtoMsg {
     }
 
     public static final int HEADER_FIELD_NUMBER = 1;
-    private com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader header_;
+    private com.funstill.netty.chat.protobuf.ProtoMsg.Header header_;
     /**
-     * <code>.MsgHeader header = 1;</code>
+     * <code>.Header header = 1;</code>
      */
     public boolean hasHeader() {
       return header_ != null;
     }
     /**
-     * <code>.MsgHeader header = 1;</code>
+     * <code>.Header header = 1;</code>
      */
-    public com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader getHeader() {
-      return header_ == null ? com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.getDefaultInstance() : header_;
+    public com.funstill.netty.chat.protobuf.ProtoMsg.Header getHeader() {
+      return header_ == null ? com.funstill.netty.chat.protobuf.ProtoMsg.Header.getDefaultInstance() : header_;
     }
     /**
-     * <code>.MsgHeader header = 1;</code>
+     * <code>.Header header = 1;</code>
      */
-    public com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeaderOrBuilder getHeaderOrBuilder() {
+    public com.funstill.netty.chat.protobuf.ProtoMsg.HeaderOrBuilder getHeaderOrBuilder() {
       return getHeader();
     }
 
     public static final int BODY_FIELD_NUMBER = 2;
-    private com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody body_;
+    private com.google.protobuf.ByteString body_;
     /**
-     * <code>.MsgBody body = 2;</code>
+     * <code>bytes body = 2;</code>
      */
-    public boolean hasBody() {
-      return body_ != null;
-    }
-    /**
-     * <code>.MsgBody body = 2;</code>
-     */
-    public com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody getBody() {
-      return body_ == null ? com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.getDefaultInstance() : body_;
-    }
-    /**
-     * <code>.MsgBody body = 2;</code>
-     */
-    public com.funstill.netty.chat.protobuf.ProtoMsg.MsgBodyOrBuilder getBodyOrBuilder() {
-      return getBody();
+    public com.google.protobuf.ByteString getBody() {
+      return body_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1657,8 +846,8 @@ public final class ProtoMsg {
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      if (body_ != null) {
-        output.writeMessage(2, getBody());
+      if (!body_.isEmpty()) {
+        output.writeBytes(2, body_);
       }
       unknownFields.writeTo(output);
     }
@@ -1672,9 +861,9 @@ public final class ProtoMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
-      if (body_ != null) {
+      if (!body_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getBody());
+          .computeBytesSize(2, body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1697,11 +886,8 @@ public final class ProtoMsg {
         result = result && getHeader()
             .equals(other.getHeader());
       }
-      result = result && (hasBody() == other.hasBody());
-      if (hasBody()) {
-        result = result && getBody()
-            .equals(other.getBody());
-      }
+      result = result && getBody()
+          .equals(other.getBody());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1717,10 +903,8 @@ public final class ProtoMsg {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
       }
-      if (hasBody()) {
-        hash = (37 * hash) + BODY_FIELD_NUMBER;
-        hash = (53 * hash) + getBody().hashCode();
-      }
+      hash = (37 * hash) + BODY_FIELD_NUMBER;
+      hash = (53 * hash) + getBody().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1856,12 +1040,8 @@ public final class ProtoMsg {
           header_ = null;
           headerBuilder_ = null;
         }
-        if (bodyBuilder_ == null) {
-          body_ = null;
-        } else {
-          body_ = null;
-          bodyBuilder_ = null;
-        }
+        body_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -1889,11 +1069,7 @@ public final class ProtoMsg {
         } else {
           result.header_ = headerBuilder_.build();
         }
-        if (bodyBuilder_ == null) {
-          result.body_ = body_;
-        } else {
-          result.body_ = bodyBuilder_.build();
-        }
+        result.body_ = body_;
         onBuilt();
         return result;
       }
@@ -1938,8 +1114,8 @@ public final class ProtoMsg {
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        if (other.hasBody()) {
-          mergeBody(other.getBody());
+        if (other.getBody() != com.google.protobuf.ByteString.EMPTY) {
+          setBody(other.getBody());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1968,29 +1144,29 @@ public final class ProtoMsg {
         return this;
       }
 
-      private com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader header_ = null;
+      private com.funstill.netty.chat.protobuf.ProtoMsg.Header header_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader, com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.Builder, com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeaderOrBuilder> headerBuilder_;
+          com.funstill.netty.chat.protobuf.ProtoMsg.Header, com.funstill.netty.chat.protobuf.ProtoMsg.Header.Builder, com.funstill.netty.chat.protobuf.ProtoMsg.HeaderOrBuilder> headerBuilder_;
       /**
-       * <code>.MsgHeader header = 1;</code>
+       * <code>.Header header = 1;</code>
        */
       public boolean hasHeader() {
         return headerBuilder_ != null || header_ != null;
       }
       /**
-       * <code>.MsgHeader header = 1;</code>
+       * <code>.Header header = 1;</code>
        */
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader getHeader() {
+      public com.funstill.netty.chat.protobuf.ProtoMsg.Header getHeader() {
         if (headerBuilder_ == null) {
-          return header_ == null ? com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.getDefaultInstance() : header_;
+          return header_ == null ? com.funstill.netty.chat.protobuf.ProtoMsg.Header.getDefaultInstance() : header_;
         } else {
           return headerBuilder_.getMessage();
         }
       }
       /**
-       * <code>.MsgHeader header = 1;</code>
+       * <code>.Header header = 1;</code>
        */
-      public Builder setHeader(com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader value) {
+      public Builder setHeader(com.funstill.netty.chat.protobuf.ProtoMsg.Header value) {
         if (headerBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2004,10 +1180,10 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>.MsgHeader header = 1;</code>
+       * <code>.Header header = 1;</code>
        */
       public Builder setHeader(
-          com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.Builder builderForValue) {
+          com.funstill.netty.chat.protobuf.ProtoMsg.Header.Builder builderForValue) {
         if (headerBuilder_ == null) {
           header_ = builderForValue.build();
           onChanged();
@@ -2018,13 +1194,13 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>.MsgHeader header = 1;</code>
+       * <code>.Header header = 1;</code>
        */
-      public Builder mergeHeader(com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader value) {
+      public Builder mergeHeader(com.funstill.netty.chat.protobuf.ProtoMsg.Header value) {
         if (headerBuilder_ == null) {
           if (header_ != null) {
             header_ =
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+              com.funstill.netty.chat.protobuf.ProtoMsg.Header.newBuilder(header_).mergeFrom(value).buildPartial();
           } else {
             header_ = value;
           }
@@ -2036,7 +1212,7 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>.MsgHeader header = 1;</code>
+       * <code>.Header header = 1;</code>
        */
       public Builder clearHeader() {
         if (headerBuilder_ == null) {
@@ -2050,33 +1226,33 @@ public final class ProtoMsg {
         return this;
       }
       /**
-       * <code>.MsgHeader header = 1;</code>
+       * <code>.Header header = 1;</code>
        */
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.Builder getHeaderBuilder() {
+      public com.funstill.netty.chat.protobuf.ProtoMsg.Header.Builder getHeaderBuilder() {
         
         onChanged();
         return getHeaderFieldBuilder().getBuilder();
       }
       /**
-       * <code>.MsgHeader header = 1;</code>
+       * <code>.Header header = 1;</code>
        */
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeaderOrBuilder getHeaderOrBuilder() {
+      public com.funstill.netty.chat.protobuf.ProtoMsg.HeaderOrBuilder getHeaderOrBuilder() {
         if (headerBuilder_ != null) {
           return headerBuilder_.getMessageOrBuilder();
         } else {
           return header_ == null ?
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.getDefaultInstance() : header_;
+              com.funstill.netty.chat.protobuf.ProtoMsg.Header.getDefaultInstance() : header_;
         }
       }
       /**
-       * <code>.MsgHeader header = 1;</code>
+       * <code>.Header header = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader, com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.Builder, com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeaderOrBuilder> 
+          com.funstill.netty.chat.protobuf.ProtoMsg.Header, com.funstill.netty.chat.protobuf.ProtoMsg.Header.Builder, com.funstill.netty.chat.protobuf.ProtoMsg.HeaderOrBuilder> 
           getHeaderFieldBuilder() {
         if (headerBuilder_ == null) {
           headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader, com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeader.Builder, com.funstill.netty.chat.protobuf.ProtoMsg.MsgHeaderOrBuilder>(
+              com.funstill.netty.chat.protobuf.ProtoMsg.Header, com.funstill.netty.chat.protobuf.ProtoMsg.Header.Builder, com.funstill.netty.chat.protobuf.ProtoMsg.HeaderOrBuilder>(
                   getHeader(),
                   getParentForChildren(),
                   isClean());
@@ -2085,121 +1261,33 @@ public final class ProtoMsg {
         return headerBuilder_;
       }
 
-      private com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody body_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody, com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.Builder, com.funstill.netty.chat.protobuf.ProtoMsg.MsgBodyOrBuilder> bodyBuilder_;
+      private com.google.protobuf.ByteString body_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>.MsgBody body = 2;</code>
+       * <code>bytes body = 2;</code>
        */
-      public boolean hasBody() {
-        return bodyBuilder_ != null || body_ != null;
+      public com.google.protobuf.ByteString getBody() {
+        return body_;
       }
       /**
-       * <code>.MsgBody body = 2;</code>
+       * <code>bytes body = 2;</code>
        */
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody getBody() {
-        if (bodyBuilder_ == null) {
-          return body_ == null ? com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.getDefaultInstance() : body_;
-        } else {
-          return bodyBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.MsgBody body = 2;</code>
-       */
-      public Builder setBody(com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody value) {
-        if (bodyBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          body_ = value;
-          onChanged();
-        } else {
-          bodyBuilder_.setMessage(value);
-        }
-
+      public Builder setBody(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        body_ = value;
+        onChanged();
         return this;
       }
       /**
-       * <code>.MsgBody body = 2;</code>
-       */
-      public Builder setBody(
-          com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.Builder builderForValue) {
-        if (bodyBuilder_ == null) {
-          body_ = builderForValue.build();
-          onChanged();
-        } else {
-          bodyBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.MsgBody body = 2;</code>
-       */
-      public Builder mergeBody(com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody value) {
-        if (bodyBuilder_ == null) {
-          if (body_ != null) {
-            body_ =
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.newBuilder(body_).mergeFrom(value).buildPartial();
-          } else {
-            body_ = value;
-          }
-          onChanged();
-        } else {
-          bodyBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.MsgBody body = 2;</code>
+       * <code>bytes body = 2;</code>
        */
       public Builder clearBody() {
-        if (bodyBuilder_ == null) {
-          body_ = null;
-          onChanged();
-        } else {
-          body_ = null;
-          bodyBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.MsgBody body = 2;</code>
-       */
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.Builder getBodyBuilder() {
         
+        body_ = getDefaultInstance().getBody();
         onChanged();
-        return getBodyFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.MsgBody body = 2;</code>
-       */
-      public com.funstill.netty.chat.protobuf.ProtoMsg.MsgBodyOrBuilder getBodyOrBuilder() {
-        if (bodyBuilder_ != null) {
-          return bodyBuilder_.getMessageOrBuilder();
-        } else {
-          return body_ == null ?
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.getDefaultInstance() : body_;
-        }
-      }
-      /**
-       * <code>.MsgBody body = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody, com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.Builder, com.funstill.netty.chat.protobuf.ProtoMsg.MsgBodyOrBuilder> 
-          getBodyFieldBuilder() {
-        if (bodyBuilder_ == null) {
-          bodyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody, com.funstill.netty.chat.protobuf.ProtoMsg.MsgBody.Builder, com.funstill.netty.chat.protobuf.ProtoMsg.MsgBodyOrBuilder>(
-                  getBody(),
-                  getParentForChildren(),
-                  isClean());
-          body_ = null;
-        }
-        return bodyBuilder_;
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2251,15 +1339,10 @@ public final class ProtoMsg {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MsgHeader_descriptor;
+    internal_static_Header_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_MsgHeader_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MsgBody_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_MsgBody_fieldAccessorTable;
+      internal_static_Header_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Message_descriptor;
   private static final 
@@ -2274,13 +1357,11 @@ public final class ProtoMsg {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016ProtoMsg.proto\";\n\tMsgHeader\022\013\n\003uid\030\001 \001" +
-      "(\t\022\016\n\006length\030\002 \001(\r\022\021\n\tprotoType\030\003 \001(\r\"M\n" +
-      "\007MsgBody\022\017\n\007msgType\030\001 \001(\r\022\016\n\006sender\030\002 \001(" +
-      "\r\022\020\n\010receiver\030\003 \001(\r\022\017\n\007content\030\004 \001(\t\"=\n\007" +
-      "Message\022\032\n\006header\030\001 \001(\0132\n.MsgHeader\022\026\n\004b" +
-      "ody\030\002 \001(\0132\010.MsgBodyB\"\n com.funstill.nett" +
-      "y.chat.protobufb\006proto3"
+      "\n\016ProtoMsg.proto\"9\n\006Header\022\014\n\004uuid\030\001 \001(\t" +
+      "\022\016\n\006length\030\002 \001(\r\022\021\n\tprotoType\030\003 \001(\r\"0\n\007M" +
+      "essage\022\027\n\006header\030\001 \001(\0132\007.Header\022\014\n\004body\030" +
+      "\002 \001(\014B\"\n com.funstill.netty.chat.protobu" +
+      "fb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2294,20 +1375,14 @@ public final class ProtoMsg {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_MsgHeader_descriptor =
+    internal_static_Header_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_MsgHeader_fieldAccessorTable = new
+    internal_static_Header_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_MsgHeader_descriptor,
-        new java.lang.String[] { "Uid", "Length", "ProtoType", });
-    internal_static_MsgBody_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_MsgBody_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_MsgBody_descriptor,
-        new java.lang.String[] { "MsgType", "Sender", "Receiver", "Content", });
+        internal_static_Header_descriptor,
+        new java.lang.String[] { "Uuid", "Length", "ProtoType", });
     internal_static_Message_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Message_descriptor,

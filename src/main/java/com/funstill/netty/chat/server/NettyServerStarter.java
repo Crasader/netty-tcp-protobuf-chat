@@ -25,7 +25,6 @@ public class NettyServerStarter {
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     .childHandler(new NettyServerChannelInitializer());
-
             //绑定端口、同步等待
             ChannelFuture futrue = serverBootstrap.bind(8089).sync();
 
