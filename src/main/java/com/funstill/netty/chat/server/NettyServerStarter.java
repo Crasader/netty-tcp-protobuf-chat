@@ -1,4 +1,4 @@
-package com.funstill.netty.chat.protobuf.server;
+package com.funstill.netty.chat.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -24,7 +24,7 @@ public class NettyServerStarter {
             serverBootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG, 1024)
-                    .childHandler(new NettyServerHandler());
+                    .childHandler(new NettyServerChannelInitializer());
 
             //绑定端口、同步等待
             ChannelFuture futrue = serverBootstrap.bind(8089).sync();
@@ -40,6 +40,7 @@ public class NettyServerStarter {
         }
 
     }
+
     public static void main(String[] args) {
         new NettyServerStarter().run();
     }

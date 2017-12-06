@@ -1,20 +1,18 @@
-package com.funstill.netty.chat.protobuf.server;
+package com.funstill.netty.chat.server;
 
 
-import io.netty.buffer.ByteBuf;
+import com.funstill.netty.chat.protobuf.ProtoMsg;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
-import io.netty.util.CharsetUtil;
 
-public class NettyServerHandler extends SimpleChannelInboundHandler {
+public class NettyServerHandler extends SimpleChannelInboundHandler<ProtoMsg.Message> {
 
 	ChannelGroup c;
 	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+	protected void channelRead0(ChannelHandlerContext ctx, ProtoMsg.Message msg) throws Exception {
 //		Channel ch=ctx.channel();
-		ByteBuf buf=(ByteBuf)msg;
-		System.out.println("server收到消息:" + buf.toString(CharsetUtil.UTF_8));
+		System.out.println("server收到消息:" + msg.toString());
 		// 回复一条信息给客户端
 //		ctx.writeAndFlush(reply);
 
