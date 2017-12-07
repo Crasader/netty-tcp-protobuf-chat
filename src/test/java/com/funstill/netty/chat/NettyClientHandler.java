@@ -18,7 +18,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
         headerBuilder.setLength(999);
         headerBuilder.setProtoType(1);
         CommonMsg.Body.Builder body= CommonMsg.Body.newBuilder();
-        body.setContent("sss");
+        body.setContent("是我啊");
         ProtoMsg.Message.Builder  msgBuilder=ProtoMsg.Message.newBuilder();
         msgBuilder.setHeader(headerBuilder);
         msgBuilder.setBody(body.build().toByteString());

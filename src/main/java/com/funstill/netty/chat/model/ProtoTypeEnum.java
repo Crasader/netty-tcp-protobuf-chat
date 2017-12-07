@@ -5,7 +5,9 @@ package com.funstill.netty.chat.model;
  * @date 2017/12/6 15:58
  */
 public enum ProtoTypeEnum {
-    COMMON_MSG(1, "消息");
+    COMMON_MSG(1, "消息"),
+    LOGIN_MSG(2, "登录"),
+    LOGOUT_MSG(3, "注销");
     private int index;
     private String name;
 
