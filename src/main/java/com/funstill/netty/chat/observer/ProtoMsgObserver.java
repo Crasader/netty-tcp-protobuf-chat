@@ -1,6 +1,6 @@
 package com.funstill.netty.chat.observer;
 
-import com.funstill.netty.chat.protobuf.CommonMsg;
+import com.funstill.netty.chat.protobuf.ProtoMsg;
 import io.netty.channel.Channel;
 
 /**
@@ -14,7 +14,7 @@ public interface ProtoMsgObserver{
      * @param channel 客户端连接channel
      * @param msg
      */
-    void handleCommonMsg(Channel channel,CommonMsg.Body msg);
+    void handleCommonMsg(Channel channel,ProtoMsg.Content msg);
 
     /**
      * 处理登录,验证密码

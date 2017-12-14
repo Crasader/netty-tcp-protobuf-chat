@@ -14,8 +14,8 @@ public final class CommonMsg {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface BodyOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Body)
+  public interface ContentOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Content)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -59,18 +59,18 @@ public final class CommonMsg {
         getContentBytes();
   }
   /**
-   * Protobuf type {@code Body}
+   * Protobuf type {@code Content}
    */
-  public  static final class Body extends
+  public  static final class Content extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Body)
-      BodyOrBuilder {
+      // @@protoc_insertion_point(message_implements:Content)
+      ContentOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Body.newBuilder() to construct.
-    private Body(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Content.newBuilder() to construct.
+    private Content(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Body() {
+    private Content() {
       msgType_ = 0;
       sender_ = 0;
       receiver_ = 0;
@@ -82,7 +82,7 @@ public final class CommonMsg {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Body(
+    private Content(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -143,14 +143,14 @@ public final class CommonMsg {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Body_descriptor;
+      return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Content_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Body_fieldAccessorTable
+      return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Content_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.funstill.netty.chat.protobuf.CommonMsg.Body.class, com.funstill.netty.chat.protobuf.CommonMsg.Body.Builder.class);
+              com.funstill.netty.chat.protobuf.CommonMsg.Content.class, com.funstill.netty.chat.protobuf.CommonMsg.Content.Builder.class);
     }
 
     public static final int MSGTYPE_FIELD_NUMBER = 1;
@@ -286,10 +286,10 @@ public final class CommonMsg {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.funstill.netty.chat.protobuf.CommonMsg.Body)) {
+      if (!(obj instanceof com.funstill.netty.chat.protobuf.CommonMsg.Content)) {
         return super.equals(obj);
       }
-      com.funstill.netty.chat.protobuf.CommonMsg.Body other = (com.funstill.netty.chat.protobuf.CommonMsg.Body) obj;
+      com.funstill.netty.chat.protobuf.CommonMsg.Content other = (com.funstill.netty.chat.protobuf.CommonMsg.Content) obj;
 
       boolean result = true;
       result = result && (getMsgType()
@@ -324,69 +324,69 @@ public final class CommonMsg {
       return hash;
     }
 
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(byte[] data)
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(java.io.InputStream input)
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseDelimitedFrom(java.io.InputStream input)
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseDelimitedFrom(
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body parseFrom(
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -398,7 +398,7 @@ public final class CommonMsg {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.funstill.netty.chat.protobuf.CommonMsg.Body prototype) {
+    public static Builder newBuilder(com.funstill.netty.chat.protobuf.CommonMsg.Content prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -413,25 +413,25 @@ public final class CommonMsg {
       return builder;
     }
     /**
-     * Protobuf type {@code Body}
+     * Protobuf type {@code Content}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Body)
-        com.funstill.netty.chat.protobuf.CommonMsg.BodyOrBuilder {
+        // @@protoc_insertion_point(builder_implements:Content)
+        com.funstill.netty.chat.protobuf.CommonMsg.ContentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Body_descriptor;
+        return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Content_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Body_fieldAccessorTable
+        return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Content_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.funstill.netty.chat.protobuf.CommonMsg.Body.class, com.funstill.netty.chat.protobuf.CommonMsg.Body.Builder.class);
+                com.funstill.netty.chat.protobuf.CommonMsg.Content.class, com.funstill.netty.chat.protobuf.CommonMsg.Content.Builder.class);
       }
 
-      // Construct using com.funstill.netty.chat.protobuf.CommonMsg.Body.newBuilder()
+      // Construct using com.funstill.netty.chat.protobuf.CommonMsg.Content.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -461,23 +461,23 @@ public final class CommonMsg {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Body_descriptor;
+        return com.funstill.netty.chat.protobuf.CommonMsg.internal_static_Content_descriptor;
       }
 
-      public com.funstill.netty.chat.protobuf.CommonMsg.Body getDefaultInstanceForType() {
-        return com.funstill.netty.chat.protobuf.CommonMsg.Body.getDefaultInstance();
+      public com.funstill.netty.chat.protobuf.CommonMsg.Content getDefaultInstanceForType() {
+        return com.funstill.netty.chat.protobuf.CommonMsg.Content.getDefaultInstance();
       }
 
-      public com.funstill.netty.chat.protobuf.CommonMsg.Body build() {
-        com.funstill.netty.chat.protobuf.CommonMsg.Body result = buildPartial();
+      public com.funstill.netty.chat.protobuf.CommonMsg.Content build() {
+        com.funstill.netty.chat.protobuf.CommonMsg.Content result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.funstill.netty.chat.protobuf.CommonMsg.Body buildPartial() {
-        com.funstill.netty.chat.protobuf.CommonMsg.Body result = new com.funstill.netty.chat.protobuf.CommonMsg.Body(this);
+      public com.funstill.netty.chat.protobuf.CommonMsg.Content buildPartial() {
+        com.funstill.netty.chat.protobuf.CommonMsg.Content result = new com.funstill.netty.chat.protobuf.CommonMsg.Content(this);
         result.msgType_ = msgType_;
         result.sender_ = sender_;
         result.receiver_ = receiver_;
@@ -513,16 +513,16 @@ public final class CommonMsg {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.funstill.netty.chat.protobuf.CommonMsg.Body) {
-          return mergeFrom((com.funstill.netty.chat.protobuf.CommonMsg.Body)other);
+        if (other instanceof com.funstill.netty.chat.protobuf.CommonMsg.Content) {
+          return mergeFrom((com.funstill.netty.chat.protobuf.CommonMsg.Content)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.funstill.netty.chat.protobuf.CommonMsg.Body other) {
-        if (other == com.funstill.netty.chat.protobuf.CommonMsg.Body.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.funstill.netty.chat.protobuf.CommonMsg.Content other) {
+        if (other == com.funstill.netty.chat.protobuf.CommonMsg.Content.getDefaultInstance()) return this;
         if (other.getMsgType() != 0) {
           setMsgType(other.getMsgType());
         }
@@ -549,11 +549,11 @@ public final class CommonMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.funstill.netty.chat.protobuf.CommonMsg.Body parsedMessage = null;
+        com.funstill.netty.chat.protobuf.CommonMsg.Content parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.funstill.netty.chat.protobuf.CommonMsg.Body) e.getUnfinishedMessage();
+          parsedMessage = (com.funstill.netty.chat.protobuf.CommonMsg.Content) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -760,49 +760,49 @@ public final class CommonMsg {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Body)
+      // @@protoc_insertion_point(builder_scope:Content)
     }
 
-    // @@protoc_insertion_point(class_scope:Body)
-    private static final com.funstill.netty.chat.protobuf.CommonMsg.Body DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:Content)
+    private static final com.funstill.netty.chat.protobuf.CommonMsg.Content DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.funstill.netty.chat.protobuf.CommonMsg.Body();
+      DEFAULT_INSTANCE = new com.funstill.netty.chat.protobuf.CommonMsg.Content();
     }
 
-    public static com.funstill.netty.chat.protobuf.CommonMsg.Body getDefaultInstance() {
+    public static com.funstill.netty.chat.protobuf.CommonMsg.Content getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Body>
-        PARSER = new com.google.protobuf.AbstractParser<Body>() {
-      public Body parsePartialFrom(
+    private static final com.google.protobuf.Parser<Content>
+        PARSER = new com.google.protobuf.AbstractParser<Content>() {
+      public Content parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Body(input, extensionRegistry);
+        return new Content(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Body> parser() {
+    public static com.google.protobuf.Parser<Content> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Body> getParserForType() {
+    public com.google.protobuf.Parser<Content> getParserForType() {
       return PARSER;
     }
 
-    public com.funstill.netty.chat.protobuf.CommonMsg.Body getDefaultInstanceForType() {
+    public com.funstill.netty.chat.protobuf.CommonMsg.Content getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Body_descriptor;
+    internal_static_Content_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Body_fieldAccessorTable;
+      internal_static_Content_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -812,10 +812,10 @@ public final class CommonMsg {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017CommonMsg.proto\"J\n\004Body\022\017\n\007msgType\030\001 \001" +
-      "(\r\022\016\n\006sender\030\002 \001(\r\022\020\n\010receiver\030\003 \001(\r\022\017\n\007" +
-      "content\030\004 \001(\tB\"\n com.funstill.netty.chat" +
-      ".protobufb\006proto3"
+      "\n\017CommonMsg.proto\"M\n\007Content\022\017\n\007msgType\030" +
+      "\001 \001(\r\022\016\n\006sender\030\002 \001(\r\022\020\n\010receiver\030\003 \001(\r\022" +
+      "\017\n\007content\030\004 \001(\tB\"\n com.funstill.netty.c" +
+      "hat.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -829,11 +829,11 @@ public final class CommonMsg {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_Body_descriptor =
+    internal_static_Content_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_Body_fieldAccessorTable = new
+    internal_static_Content_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Body_descriptor,
+        internal_static_Content_descriptor,
         new java.lang.String[] { "MsgType", "Sender", "Receiver", "Content", });
   }
 

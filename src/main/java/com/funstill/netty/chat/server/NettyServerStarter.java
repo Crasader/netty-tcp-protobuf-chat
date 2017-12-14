@@ -12,6 +12,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @date 2017/12/5 14:53
  */
 public class NettyServerStarter {
+    public final int PORT = 8089;
 
     /**
      * 启动服务
@@ -26,7 +27,7 @@ public class NettyServerStarter {
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     .childHandler(new NettyServerChannelInitializer());
             //绑定端口、同步等待
-            ChannelFuture futrue = serverBootstrap.bind(8089).sync();
+            ChannelFuture futrue = serverBootstrap.bind(PORT).sync();
 
             //等待服务监听端口关闭
             futrue.channel().closeFuture().sync();

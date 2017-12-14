@@ -1,4 +1,4 @@
-package com.funstill.netty.chat.handler;
+package com.funstill.netty.chat.server;
 
 
 import com.funstill.netty.chat.observer.ProtoMsgObservable;
@@ -10,14 +10,14 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class NettyServerHandler extends SimpleChannelInboundHandler<ProtoMsg.Message> {
+public class NettyServerHandler extends SimpleChannelInboundHandler<ProtoMsg.Content> {
 	Logger logger = LogManager.getLogger(NettyServerHandler.class);
 	public static ProtoMsgObservable msgObservable=new ProtoMsgObservable();
 	static {
 		msgObservable.addObserver(new ProtoMsgObserverImpl());
 	}
 	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, ProtoMsg.Message msg) throws Exception {
+	protected void channelRead0(ChannelHandlerContext ctx, ProtoMsg.Content msg) throws Exception {
 		Channel ch=ctx.channel();
 		logger.info("准备接收消息-客户端ip:{}",ch.remoteAddress());
 		msgObservable.handleMsg(ch,msg);
