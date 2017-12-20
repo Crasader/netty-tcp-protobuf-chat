@@ -1,7 +1,7 @@
-package com.funstill.netty.chat.web.controller;
+package com.funstill.netty.chat.controller;
 
-import com.funstill.netty.chat.web.mybatis.mapper.UserMapper;
-import com.funstill.netty.chat.web.mybatis.model.ChatUser;
+import com.funstill.netty.chat.mapper.UserMapper;
+import com.funstill.netty.chat.model.user.ChatUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController {
     @Autowired
     private UserMapper userMapper;
+
 
     @RequestMapping("/auth")
     @ResponseBody

@@ -1,4 +1,4 @@
-package com.funstill.netty.chat.model;
+package com.funstill.netty.chat.model.enums;
 
 /**
  * @author liukaiyang
@@ -6,8 +6,9 @@ package com.funstill.netty.chat.model;
  */
 public enum ProtoTypeEnum {
     COMMON_MSG(1, "消息"),
-    LOGIN_MSG(2, "登录"),
-    LOGOUT_MSG(3, "注销");
+    LOGIN_MSG(2, "登录请求"),
+    LOGIN_RES_MSG(3, "登录响应"),
+    LOGOUT_MSG(4, "注销");
     private int index;
     private String name;
 

@@ -9,16 +9,11 @@ import io.netty.channel.Channel;
  */
 public interface ProtoMsgObserver{
     /**
-     * 处理普通消息(文本,图片,等)
+     * 处理消息
      *
      * @param channel 客户端连接channel
      * @param msg
      */
-    void handleCommonMsg(Channel channel,ProtoMsg.Content msg);
+    void handleProtoMsg(Channel channel,ProtoMsg.Content msg);
 
-    /**
-     * 处理登录,验证密码
-     * @param channel
-     */
-    void handleLogin(Channel channel);
 }

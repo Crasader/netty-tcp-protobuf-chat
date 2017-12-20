@@ -1,4 +1,4 @@
-package com.funstill.netty.chat.web.mybatis.model;
+package com.funstill.netty.chat.model.user;
 
 /**
  * @author liukaiyang

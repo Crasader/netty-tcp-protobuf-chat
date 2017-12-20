@@ -18,6 +18,7 @@ public class NettyServerStarter {
      * 启动服务
      */
     public void run() {
+        System.out.println("开始执行NettyServerStarter.java run方法...");
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {

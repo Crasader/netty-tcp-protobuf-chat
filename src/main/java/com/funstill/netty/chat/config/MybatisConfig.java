@@ -1,11 +1,11 @@
-package com.funstill.netty.chat.web.mybatis.config;
+package com.funstill.netty.chat.config;
 
 /**
  * @author liukaiyang
  * @date 2017/12/12 18:01
  */
 //@Configuration
-//@MapperScan(basePackages = "com.funstill.netty.chat.web.mybatis.mapper",
+//@MapperScan(basePackages = "com.funstill.netty.chat.mybatis.mapper",
 //        sqlSessionTemplateRef = "mybatisMasterSqlSessionTemplate")
 //@PropertySource("classpath:mybatis-config.properties")
 public class MybatisConfig {
