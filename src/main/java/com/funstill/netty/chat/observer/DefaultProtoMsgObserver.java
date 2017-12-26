@@ -52,8 +52,10 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
                     res.setMsg(ResponseEnum.SUCCESS.getMsg());
                     res.setUserId(user.getUserId()+"");
                 }
-                msg.toBuilder().setContent(res.build().toByteString());
-                channel.writeAndFlush(msg);
+                ProtoMsg.Content.Builder msgBuilder=msg.toBuilder();
+                msgBuilder.setProtoType(ProtoTypeEnum.LOGIN_RES_MSG.getIndex());
+                msgBuilder.setContent(res.build().toByteString());
+                channel.writeAndFlush(msgBuilder.build());
             } catch (Exception e) {
                 e.printStackTrace();
             }
