@@ -1,7 +1,5 @@
 package com.funstill.netty.chat.model.user;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 
 /**
@@ -13,7 +11,7 @@ public class ChatFriend {
     private Long userId;
     private Long friendUserId;
     private String friendUserName;
-    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss")
     private Date createDate;
     private Date updateDate;
 
