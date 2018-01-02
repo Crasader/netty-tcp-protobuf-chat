@@ -20,9 +20,9 @@ public class LoginController {
 
     @RequestMapping("/auth")
     @ResponseBody
-    public String auth(@RequestParam String username,
+    public ChatUser auth(@RequestParam String username,
                        @RequestParam String password) {
-        ChatUser user= userMapper.selectById(1L);
-        return user.getUsername();
+        ChatUser user= userMapper.selectById(11L);
+        return user;
     }
 }

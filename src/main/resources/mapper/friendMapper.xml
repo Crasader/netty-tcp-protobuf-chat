@@ -5,7 +5,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="friend_user_id" jdbcType="BIGINT" property="friendUserId" />
-    <result column="friend_note_name" jdbcType="VARCHAR" property="friendUserName" />
+    <result column="friend_note_name" jdbcType="VARCHAR" property="friendNoteName" />
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
     <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>

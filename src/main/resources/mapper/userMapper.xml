@@ -3,11 +3,10 @@
 <mapper namespace="com.funstill.netty.chat.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.funstill.netty.chat.model.user.ChatUser">
     <id column="id" jdbcType="BIGINT" property="userId" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="self_desc" jdbcType="VARCHAR" property="selfDesc" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, username, password
+    id, username,nickname, password,avatar,self_desc
   </sql>
   <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 

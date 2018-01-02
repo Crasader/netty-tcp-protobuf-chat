@@ -10,7 +10,10 @@ public class ChatFriend {
     private Long id;
     private Long userId;
     private Long friendUserId;
-    private String friendUserName;
+    /**
+     * 备注名
+     */
+    private String friendNoteName;
 //    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss")
     private Date createDate;
     private Date updateDate;
@@ -39,15 +42,6 @@ public class ChatFriend {
         this.friendUserId = friendUserId;
     }
 
-    public String getFriendUserName() {
-        return friendUserName;
-    }
-
-    public void setFriendUserName(String friendUserName) {
-        this.friendUserName = friendUserName;
-    }
-
-
     public Date getCreateDate() {
         return createDate;
     }
@@ -62,5 +56,13 @@ public class ChatFriend {
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public String getFriendNoteName() {
+        return friendNoteName;
+    }
+
+    public void setFriendNoteName(String friendNoteName) {
+        this.friendNoteName = friendNoteName;
     }
 }
