@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * @author liukaiyang
  * @date 2017/12/12 10:10
@@ -16,10 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class FriendController {
     @Autowired
     private FriendMapper friendMapper;
-    @RequestMapping("/friend")
+    @RequestMapping("/friend/list")
     @ResponseBody
-    public ChatFriend auth(@RequestParam Long userId) {
-        ChatFriend friend= friendMapper.selectByUserId(userId);
-        return friend;
+    public List<ChatFriend> friendList(@RequestParam Long userId) {
+        List<ChatFriend> friendList= friendMapper.selectByUserId(userId);
+        return friendList;
     }
 }
