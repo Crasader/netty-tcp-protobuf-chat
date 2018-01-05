@@ -1,5 +1,6 @@
 package com.funstill.netty.chat.observer;
 
+import com.alibaba.fastjson.JSON;
 import com.funstill.netty.chat.model.enums.ProtoTypeEnum;
 import com.funstill.netty.chat.model.enums.ResponseEnum;
 import com.funstill.netty.chat.protobuf.AuthMsg;
@@ -51,6 +52,7 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
                     res.setCode(ResponseEnum.SUCCESS.getCode());
                     res.setMsg(ResponseEnum.SUCCESS.getMsg());
                     res.setUserId(user.getUserId()+"");
+                    res.setExtra(JSON.toJSONString(user));
                 }
                 ProtoMsg.Content.Builder msgBuilder=msg.toBuilder();
                 msgBuilder.setProtoType(ProtoTypeEnum.LOGIN_RES_MSG.getIndex());
