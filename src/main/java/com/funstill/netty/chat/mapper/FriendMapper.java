@@ -8,5 +8,6 @@ import java.util.List;
 @Repository
 public interface FriendMapper {
 	ChatFriend selectById(Long id);
+	ChatFriend selectByUserId(Long userId,Long friendId);
 	List<ChatFriend> selectByUserId(Long userId);
 }

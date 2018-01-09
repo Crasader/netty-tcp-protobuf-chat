@@ -29,14 +29,14 @@ public final class CommonMsg {
     int getMsgType();
 
     /**
-     * <code>uint32 sender = 2;</code>
+     * <code>uint64 sender = 2;</code>
      */
-    int getSender();
+    long getSender();
 
     /**
-     * <code>uint32 receiver = 3;</code>
+     * <code>uint64 receiver = 3;</code>
      */
-    int getReceiver();
+    long getReceiver();
 
     /**
      * <pre>
@@ -72,8 +72,8 @@ public final class CommonMsg {
     }
     private Content() {
       msgType_ = 0;
-      sender_ = 0;
-      receiver_ = 0;
+      sender_ = 0L;
+      receiver_ = 0L;
       content_ = "";
     }
 
@@ -115,12 +115,12 @@ public final class CommonMsg {
             }
             case 16: {
 
-              sender_ = input.readUInt32();
+              sender_ = input.readUInt64();
               break;
             }
             case 24: {
 
-              receiver_ = input.readUInt32();
+              receiver_ = input.readUInt64();
               break;
             }
             case 34: {
@@ -168,20 +168,20 @@ public final class CommonMsg {
     }
 
     public static final int SENDER_FIELD_NUMBER = 2;
-    private int sender_;
+    private long sender_;
     /**
-     * <code>uint32 sender = 2;</code>
+     * <code>uint64 sender = 2;</code>
      */
-    public int getSender() {
+    public long getSender() {
       return sender_;
     }
 
     public static final int RECEIVER_FIELD_NUMBER = 3;
-    private int receiver_;
+    private long receiver_;
     /**
-     * <code>uint32 receiver = 3;</code>
+     * <code>uint64 receiver = 3;</code>
      */
-    public int getReceiver() {
+    public long getReceiver() {
       return receiver_;
     }
 
@@ -244,11 +244,11 @@ public final class CommonMsg {
       if (msgType_ != 0) {
         output.writeUInt32(1, msgType_);
       }
-      if (sender_ != 0) {
-        output.writeUInt32(2, sender_);
+      if (sender_ != 0L) {
+        output.writeUInt64(2, sender_);
       }
-      if (receiver_ != 0) {
-        output.writeUInt32(3, receiver_);
+      if (receiver_ != 0L) {
+        output.writeUInt64(3, receiver_);
       }
       if (!getContentBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, content_);
@@ -265,13 +265,13 @@ public final class CommonMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, msgType_);
       }
-      if (sender_ != 0) {
+      if (sender_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, sender_);
+          .computeUInt64Size(2, sender_);
       }
-      if (receiver_ != 0) {
+      if (receiver_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, receiver_);
+          .computeUInt64Size(3, receiver_);
       }
       if (!getContentBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, content_);
@@ -314,9 +314,11 @@ public final class CommonMsg {
       hash = (37 * hash) + MSGTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getMsgType();
       hash = (37 * hash) + SENDER_FIELD_NUMBER;
-      hash = (53 * hash) + getSender();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSender());
       hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
-      hash = (53 * hash) + getReceiver();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getReceiver());
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -450,9 +452,9 @@ public final class CommonMsg {
         super.clear();
         msgType_ = 0;
 
-        sender_ = 0;
+        sender_ = 0L;
 
-        receiver_ = 0;
+        receiver_ = 0L;
 
         content_ = "";
 
@@ -526,10 +528,10 @@ public final class CommonMsg {
         if (other.getMsgType() != 0) {
           setMsgType(other.getMsgType());
         }
-        if (other.getSender() != 0) {
+        if (other.getSender() != 0L) {
           setSender(other.getSender());
         }
-        if (other.getReceiver() != 0) {
+        if (other.getReceiver() != 0L) {
           setReceiver(other.getReceiver());
         }
         if (!other.getContent().isEmpty()) {
@@ -604,54 +606,54 @@ public final class CommonMsg {
         return this;
       }
 
-      private int sender_ ;
+      private long sender_ ;
       /**
-       * <code>uint32 sender = 2;</code>
+       * <code>uint64 sender = 2;</code>
        */
-      public int getSender() {
+      public long getSender() {
         return sender_;
       }
       /**
-       * <code>uint32 sender = 2;</code>
+       * <code>uint64 sender = 2;</code>
        */
-      public Builder setSender(int value) {
+      public Builder setSender(long value) {
         
         sender_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 sender = 2;</code>
+       * <code>uint64 sender = 2;</code>
        */
       public Builder clearSender() {
         
-        sender_ = 0;
+        sender_ = 0L;
         onChanged();
         return this;
       }
 
-      private int receiver_ ;
+      private long receiver_ ;
       /**
-       * <code>uint32 receiver = 3;</code>
+       * <code>uint64 receiver = 3;</code>
        */
-      public int getReceiver() {
+      public long getReceiver() {
         return receiver_;
       }
       /**
-       * <code>uint32 receiver = 3;</code>
+       * <code>uint64 receiver = 3;</code>
        */
-      public Builder setReceiver(int value) {
+      public Builder setReceiver(long value) {
         
         receiver_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 receiver = 3;</code>
+       * <code>uint64 receiver = 3;</code>
        */
       public Builder clearReceiver() {
         
-        receiver_ = 0;
+        receiver_ = 0L;
         onChanged();
         return this;
       }
@@ -813,7 +815,7 @@ public final class CommonMsg {
   static {
     java.lang.String[] descriptorData = {
       "\n\017CommonMsg.proto\"M\n\007Content\022\017\n\007msgType\030" +
-      "\001 \001(\r\022\016\n\006sender\030\002 \001(\r\022\020\n\010receiver\030\003 \001(\r\022" +
+      "\001 \001(\r\022\016\n\006sender\030\002 \001(\004\022\020\n\010receiver\030\003 \001(\004\022" +
       "\017\n\007content\030\004 \001(\tB\"\n com.funstill.netty.c" +
       "hat.protobufb\006proto3"
     };

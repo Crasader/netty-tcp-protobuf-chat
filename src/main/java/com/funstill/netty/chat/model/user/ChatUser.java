@@ -1,5 +1,7 @@
 package com.funstill.netty.chat.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author liukaiyang
  * @date 2017/12/12 15:42
@@ -8,6 +10,7 @@ public class ChatUser {
     private Long userId;
     private String username;
     private String nickname;
+    @JsonIgnore
     private String password;
     private String avatar;
     private String selfDesc;

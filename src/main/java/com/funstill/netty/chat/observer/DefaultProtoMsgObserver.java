@@ -35,10 +35,9 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
         if (StringUtils.isEmpty(msg.getUuid())) {
             msg.toBuilder().setUuid(UUID.randomUUID().toString());
         }
-        if (msg.getProtoType() == ProtoTypeEnum.LOGIN_MSG.getIndex()) {//登录请求
+        if (msg.getProtoType() == ProtoTypeEnum.LOGIN_REQUEST_MSG.getIndex()) {//登录请求
             //响应
             AuthResponseMsg.Content.Builder res = AuthResponseMsg.Content.newBuilder();
-
             try {
                 AuthMsg.Content authMsg = AuthMsg.Content.parseFrom(msg.getContent());
                 ChatUser user = userMapper.selectByUsername(authMsg.getUsername());
@@ -55,7 +54,7 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
                     res.setExtra(JSON.toJSONString(user));
                 }
                 ProtoMsg.Content.Builder msgBuilder=msg.toBuilder();
-                msgBuilder.setProtoType(ProtoTypeEnum.LOGIN_RES_MSG.getIndex());
+                msgBuilder.setProtoType(ProtoTypeEnum.LOGIN_RESPONSE_MSG.getIndex());
                 msgBuilder.setContent(res.build().toByteString());
                 channel.writeAndFlush(msgBuilder.build());
             } catch (Exception e) {
@@ -69,8 +68,12 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
             } catch (InvalidProtocolBufferException e) {
                 e.printStackTrace();
             }
-            System.out.println(commonMsg.getContent());
-            //测试代码
+            //消息echo,主要是告诉客户端消息已被服务端接收处理并返回消息id
+            ProtoMsg.Content.Builder msgBuilder=msg.toBuilder();
+            msgBuilder.setProtoType(ProtoTypeEnum.COMMON_MSG_ECHO.getIndex());
+            channel.writeAndFlush(msgBuilder.build());
+            //转发消息
+            //TODO 找到消息接受者的channel
 
         }
 
