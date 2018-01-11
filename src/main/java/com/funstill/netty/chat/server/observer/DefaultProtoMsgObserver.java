@@ -1,16 +1,18 @@
-package com.funstill.netty.chat.observer;
+package com.funstill.netty.chat.server.observer;
 
 import com.alibaba.fastjson.JSON;
+import com.funstill.netty.chat.mapper.UserMapper;
 import com.funstill.netty.chat.model.enums.ProtoTypeEnum;
 import com.funstill.netty.chat.model.enums.ResponseEnum;
+import com.funstill.netty.chat.model.user.ChatUser;
 import com.funstill.netty.chat.protobuf.AuthMsg;
 import com.funstill.netty.chat.protobuf.AuthResponseMsg;
 import com.funstill.netty.chat.protobuf.CommonMsg;
 import com.funstill.netty.chat.protobuf.ProtoMsg;
-import com.funstill.netty.chat.mapper.UserMapper;
-import com.funstill.netty.chat.model.user.ChatUser;
+import com.funstill.netty.chat.server.processor.OnlineProcessor;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.channel.Channel;
+import io.netty.util.Attribute;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +38,14 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
 
         //消息id
         if (StringUtils.isEmpty(msg.getUuid())) {
-            msg.toBuilder().setUuid(UUID.randomUUID().toString());
+            msg=msg.toBuilder().setUuid(UUID.randomUUID().toString()).build();
         }
         if (msg.getProtoType() == ProtoTypeEnum.LOGIN_REQUEST_MSG.getIndex()) {//登录请求
             //响应
             AuthResponseMsg.Content.Builder res = AuthResponseMsg.Content.newBuilder();
             try {
                 AuthMsg.Content authMsg = AuthMsg.Content.parseFrom(msg.getContent());
-                logger.debug("服务器收到登录请求:{}",authMsg.toString());
+                logger.debug("服务器收到登录请求:{}", authMsg.toString());
                 ChatUser user = userMapper.selectByUsername(authMsg.getUsername());
                 if (user == null) {
                     res.setCode(ResponseEnum.USER_NOT_EXIST.getCode());
@@ -56,11 +58,16 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
                     res.setMsg(ResponseEnum.SUCCESS.getMsg());
                     res.setUserId(user.getUserId() + "");
                     res.setExtra(JSON.toJSONString(user));
+                    //登录成功
+                    Attribute<String> attr = channel.attr(OnlineProcessor.ATTRIBUTE_KEY);
+                    attr.setIfAbsent(user.getUserId() + "");
+                    OnlineProcessor.getInstance().putUser(user.getUserId() + "", channel);
                 }
                 ProtoMsg.Content.Builder msgBuilder = msg.toBuilder();
                 msgBuilder.setProtoType(ProtoTypeEnum.LOGIN_RESPONSE_MSG.getIndex());
                 msgBuilder.setContent(res.build().toByteString());
                 channel.writeAndFlush(msgBuilder.build());
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -68,16 +75,21 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
         } else if (msg.getProtoType() == ProtoTypeEnum.COMMON_MSG.getIndex()) {
             try {
                 CommonMsg.Content commonMsg = CommonMsg.Content.parseFrom(msg.getContent());
-                logger.debug("服务器收到聊天消息:{}",commonMsg.toString());
+                logger.debug("服务器收到聊天消息:{}", commonMsg.toString());
+                //消息echo,主要是告诉客户端消息已被服务端接收处理并返回消息id
+                ProtoMsg.Content.Builder msgBuilder = msg.toBuilder();
+                msgBuilder.setProtoType(ProtoTypeEnum.COMMON_MSG_ECHO.getIndex());
+                channel.writeAndFlush(msgBuilder.build());
+                //转发消息
+                boolean isRecOnline=OnlineProcessor.getInstance().isOnline(commonMsg.getReceiver()+"");
+                if(isRecOnline){
+                    Channel recChannel=OnlineProcessor.getInstance().getChannelMap().get(commonMsg.getReceiver()+"");
+                    recChannel.writeAndFlush(msg);
+                }
             } catch (InvalidProtocolBufferException e) {
                 e.printStackTrace();
             }
-            //消息echo,主要是告诉客户端消息已被服务端接收处理并返回消息id
-            ProtoMsg.Content.Builder msgBuilder = msg.toBuilder();
-            msgBuilder.setProtoType(ProtoTypeEnum.COMMON_MSG_ECHO.getIndex());
-            channel.writeAndFlush(msgBuilder.build());
-            //转发消息
-            //TODO 找到消息接受者的channel
+
 
         }
 

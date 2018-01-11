@@ -28,7 +28,7 @@ public class FriendController {
     @RequestMapping("/friend/detail")
     @ResponseBody
     public ChatFriend friendDetail(@RequestParam Long userId,@RequestParam Long friendId) {
-        ChatFriend friend= friendMapper.selectByUserId(userId,friendId);
+        ChatFriend friend= friendMapper.selectByUserIdFriendId(userId,friendId);
         return friend;
     }
 }

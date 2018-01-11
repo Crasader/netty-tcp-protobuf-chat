@@ -1,9 +1,10 @@
 package com.funstill.netty.chat.server;
 
 
-import com.funstill.netty.chat.observer.ProtoMsgObservable;
-import com.funstill.netty.chat.observer.ProtoMsgObserver;
+import com.funstill.netty.chat.server.observer.ProtoMsgObservable;
+import com.funstill.netty.chat.server.observer.ProtoMsgObserver;
 import com.funstill.netty.chat.protobuf.ProtoMsg;
+import com.funstill.netty.chat.server.processor.OnlineProcessor;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -29,12 +30,17 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<ProtoMsg.Con
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("server已激活");
+        logger.info("连接已建立,ip={},channelId={}",ctx.channel().localAddress(),ctx.channel().id());
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("server已停止");
+        Channel ch = ctx.channel();
+        String uniqueIdentity=OnlineProcessor.getInstance().getUniqueIdentityFromChannel(ch);
+        if(uniqueIdentity!=null){
+            OnlineProcessor.getInstance().removeUser(uniqueIdentity);
+        }
+        logger.info("连接已中断,,ip={},channelId={}",ch.localAddress(),ch.id());
     }
 
     @Override

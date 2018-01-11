@@ -1,4 +1,4 @@
-package com.funstill.netty.chat.observer;
+package com.funstill.netty.chat.server.observer;
 
 import com.funstill.netty.chat.protobuf.ProtoMsg;
 import io.netty.channel.Channel;
