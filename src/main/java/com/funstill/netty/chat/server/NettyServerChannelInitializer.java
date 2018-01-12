@@ -7,6 +7,9 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
+import io.netty.handler.timeout.IdleStateHandler;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author liukaiyang
@@ -22,5 +25,8 @@ public class NettyServerChannelInitializer extends ChannelInitializer<SocketChan
         socketChannel.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
         socketChannel.pipeline().addLast(new ProtobufEncoder());
         socketChannel.pipeline().addLast(new NettyServerHandler());
+
+        //心跳包
+        socketChannel.pipeline().addLast(new IdleStateHandler(5, 0, 0, TimeUnit.SECONDS));
     }
 }
