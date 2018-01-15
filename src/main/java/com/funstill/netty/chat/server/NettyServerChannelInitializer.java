@@ -9,8 +9,6 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.timeout.IdleStateHandler;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * @author liukaiyang
  * @date 2017/12/6 9:32
@@ -18,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 public class NettyServerChannelInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
+        //idle
+        socketChannel.pipeline().addLast(new IdleStateHandler(5, 0, 0));
         //接收解码
         socketChannel.pipeline().addLast(new ProtobufVarint32FrameDecoder());
         socketChannel.pipeline().addLast(new ProtobufDecoder(ProtoMsg.Content.getDefaultInstance()));
@@ -26,7 +26,5 @@ public class NettyServerChannelInitializer extends ChannelInitializer<SocketChan
         socketChannel.pipeline().addLast(new ProtobufEncoder());
         socketChannel.pipeline().addLast(new NettyServerHandler());
 
-        //心跳包
-        socketChannel.pipeline().addLast(new IdleStateHandler(5, 0, 0, TimeUnit.SECONDS));
     }
 }
