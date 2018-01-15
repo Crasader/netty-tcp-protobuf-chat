@@ -16,8 +16,8 @@ import io.netty.handler.timeout.IdleStateHandler;
 public class NettyServerChannelInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
-        //idle
-        socketChannel.pipeline().addLast(new IdleStateHandler(5, 0, 0));
+        //idle,心跳包间隔为8秒,服务端冗余1秒--即9秒内收不到消息认为读超时
+        socketChannel.pipeline().addLast(new IdleStateHandler(9, 0, 0));
         //接收解码
         socketChannel.pipeline().addLast(new ProtobufVarint32FrameDecoder());
         socketChannel.pipeline().addLast(new ProtobufDecoder(ProtoMsg.Content.getDefaultInstance()));

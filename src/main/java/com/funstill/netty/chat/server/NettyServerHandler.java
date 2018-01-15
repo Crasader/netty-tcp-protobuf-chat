@@ -47,11 +47,15 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<ProtoMsg.Con
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        if (evt instanceof IdleStateEvent) {
+        if (evt instanceof IdleStateEvent) {//服务端不需要回复心跳包了(浪费资源)
             IdleStateEvent event = (IdleStateEvent) evt;
             if (event.state() == IdleState.READER_IDLE) {
-                logger.info("5 秒没有接收到客户端的信息了,关闭这个不活跃的channel");
-                ctx.channel().close();
+                if(event.isFirst()){
+                    logger.debug("5 秒没有接收到客户端的信息了");
+                }else {
+                    logger.error("第二次没有接收到客户端的信息了,关闭这个不活跃的channel");
+                    ctx.channel().close();
+                }
             }
         } else {
             super.userEventTriggered(ctx, evt);
