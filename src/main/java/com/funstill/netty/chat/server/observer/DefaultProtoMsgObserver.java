@@ -44,7 +44,7 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
         }else if(msg.getProtoType()==ProtoTypeEnum.HEART_BEAT_PING.getIndex()){
             handleHeartbeat(channel,msg);
         }else if(msg.getProtoType()==ProtoTypeEnum.ONLINE_REQUEST_MSG.getIndex()){
-            //登录成功
+            handleAuthMsg(channel,msg);
 
         }
     }
