@@ -25,12 +25,17 @@ public class OnlineProcessor {
     }
 
 
+    /**
+     * TODO 应该需要加锁?
+     * @param userId
+     * @param channel
+     */
     public void putUser(String userId, Channel channel) {
         if (channelMap.containsKey(channel)) {
             boolean sameChannel=channelMap.get(userId).hashCode() == channel.hashCode();
             logger.debug("用户id={}已经在在线列表中了，channel也是同一个吗？{}", userId, sameChannel);
-            //TODO 踢出
         }else {
+            //TODO 给原来的channel发送登出指令
             channelMap.put(userId, channel);
         }
         logger.debug("当前在线用户共({})人", channelMap.size());
