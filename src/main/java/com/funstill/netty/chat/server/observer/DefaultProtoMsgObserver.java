@@ -10,7 +10,6 @@ import com.funstill.netty.chat.protobuf.AuthResponseMsg;
 import com.funstill.netty.chat.protobuf.CommonMsg;
 import com.funstill.netty.chat.protobuf.ProtoMsg;
 import com.funstill.netty.chat.server.processor.OnlineProcessor;
-import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.channel.Channel;
 import io.netty.util.Attribute;
 import org.apache.logging.log4j.LogManager;
@@ -22,8 +21,9 @@ import org.springframework.util.StringUtils;
 import java.util.UUID;
 
 /**
- * 通用处理
- *
+ * 消息默认处理的类型<br/>
+ * 备注:可以另外添加Observer扩展处理其他类型消息<br/>
+ * 添加方法:待容器启动后,<code>NettyServerHandler.msgObservable.addObserver()</code>
  * @author liukaiyang
  * @date 2017/12/6 20:16
  */
@@ -81,12 +81,15 @@ public class DefaultProtoMsgObserver implements ProtoMsgObserver {
                 msgBuilder.setProtoType(ProtoTypeEnum.COMMON_MSG_ECHO.getIndex());
                 channel.writeAndFlush(msgBuilder.build());
                 //转发消息
-                boolean isRecOnline=OnlineProcessor.getInstance().isOnline(commonMsg.getReceiver()+"");
-                if(isRecOnline){
+                boolean isReceiverOnline=OnlineProcessor.getInstance().isOnline(commonMsg.getReceiver()+"");
+                if(isReceiverOnline){
                     Channel recChannel=OnlineProcessor.getInstance().getChannelMap().get(commonMsg.getReceiver()+"");
                     recChannel.writeAndFlush(msg);
+                }else {
+                    //TODO 离线消息处理
                 }
-            } catch (InvalidProtocolBufferException e) {
+            } catch (Exception e) {
+                logger.error("处理消息异常:{}",e);
                 e.printStackTrace();
             }
 

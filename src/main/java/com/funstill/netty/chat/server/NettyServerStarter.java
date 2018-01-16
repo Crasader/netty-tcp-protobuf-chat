@@ -1,5 +1,6 @@
 package com.funstill.netty.chat.server;
 
+import com.funstill.netty.chat.constants.NettyServerConst;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
@@ -12,13 +13,11 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @date 2017/12/5 14:53
  */
 public class NettyServerStarter {
-    public final int PORT = 8089;
-
     /**
      * 启动服务
      */
-    public void run() {
-        System.out.println("开始执行NettyServerStarter.java run方法...");
+    public void run(int port) {
+        System.out.println("开始执行NettyServerStarter.run()方法...");
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
@@ -28,7 +27,7 @@ public class NettyServerStarter {
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     .childHandler(new NettyServerChannelInitializer());
             //绑定端口、同步等待
-            ChannelFuture futrue = serverBootstrap.bind(PORT).sync();
+            ChannelFuture futrue = serverBootstrap.bind(port).sync();
 
             //等待服务监听端口关闭
             futrue.channel().closeFuture().sync();
@@ -43,6 +42,6 @@ public class NettyServerStarter {
     }
 
     public static void main(String[] args) {
-        new NettyServerStarter().run();
+        new NettyServerStarter().run(NettyServerConst.PORT);
     }
 }

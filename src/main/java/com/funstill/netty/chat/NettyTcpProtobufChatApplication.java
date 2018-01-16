@@ -1,5 +1,6 @@
 package com.funstill.netty.chat;
 
+import com.funstill.netty.chat.constants.NettyServerConst;
 import com.funstill.netty.chat.server.NettyServerStarter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.ApplicationArguments;
@@ -16,7 +17,6 @@ public class NettyTcpProtobufChatApplication implements ApplicationRunner{
 
 	@Override
 	public void run(ApplicationArguments applicationArguments) throws Exception {
-		System.out.println("初始化...");
-		new NettyServerStarter().run();
+		new NettyServerStarter().run(NettyServerConst.PORT);
 	}
 }

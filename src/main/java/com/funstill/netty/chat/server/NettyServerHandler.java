@@ -26,7 +26,6 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<ProtoMsg.Con
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ProtoMsg.Content msg) throws Exception {
         Channel ch = ctx.channel();
-        logger.info("准备接收消息-客户端ip:{}", ch.remoteAddress());
         msgObservable.handleMsg(ch, msg);
     }
 
@@ -53,7 +52,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<ProtoMsg.Con
                 if(event.isFirst()){
                     logger.debug("5 秒没有接收到客户端的信息了");
                 }else {
-                    logger.error("第二次没有接收到客户端的信息了,关闭这个不活跃的channel");
+                    logger.error("第二次没有接收到客户端的信息了,关闭这个不活跃的channel,uniqueIdentity={}",OnlineProcessor.getUniqueIdentityFromChannel(ctx.channel()));
                     ctx.channel().close();
                 }
             }
